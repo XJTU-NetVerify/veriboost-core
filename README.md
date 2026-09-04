@@ -38,7 +38,7 @@ This will generate a JAR file in the `target/` directory, for example: `veriboos
 * Test whether the jar package is generated correctly.
 
 ```bash
-java -jar target/veriboost-core-1.0.jar src/test/resources/topology.txt panamattcity raleigh
+java -jar target/veriboost-core-1.0.jar src/test/resources panamattcity raleigh
 ```
 
 * Install the JAR into your local Maven repository:
