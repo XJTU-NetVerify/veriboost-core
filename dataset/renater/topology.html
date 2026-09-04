@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ECharts Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"
+        integrity="sha512-ivdGNkeO+FTZH5ZoVC4gS4ovGSiWc+6v60/hvHkccaMN2BXchfKdvEZtviy5L4xSpF8NPsfS0EVNSGf+EsUdxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #title-container {
+            width: 5000px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #download-btn {
+            border-radius: 6px;
+            background-color: aliceblue;
+            border: 1px solid black;
+        }
+
+        #display-container {
+            width: 5000px;
+            height: 3500px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title-container">
+            <h1 class="display">ECharts Java</h1>
+            <button id="download-btn" onclick="downloadImage()">Download Image</button>
+        </div>
+        <div id="display-container">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function downloadImage() {
+            let canvas = document.querySelector("canvas");
+            let image = canvas.toDataURL("image/png").replace("image/png",
+                "image/octet-stream");
+            let fakeLink = document.createElement("a");
+            if (typeof fakeLink.download === "string") {
+                document.body.appendChild(fakeLink);
+                fakeLink.download = "echart.png";
+                fakeLink.href = image;
+                fakeLink.click();
+                document.body.removeChild(fakeLink);
+            } else {
+                location.replace(image);
+            }
+        }
+        var chart = echarts.init(document.getElementById("display-container")); 
+        var option = {"title":{"text":"topology"},"tooltip":{"trigger":"item"},"legend":{},"series":[{"type":"graph","data":[{"symbolSize":12,"name":"bordeaux","draggable":true},{"symbolSize":12,"name":"martiniquettguadeloupettcayenne","draggable":true},{"symbolSize":12,"name":"sfinx","draggable":true},{"symbolSize":12,"name":"nodeid13","draggable":true},{"symbolSize":12,"name":"reims","draggable":true},{"symbolSize":12,"name":"geant2","draggable":true},{"symbolSize":12,"name":"clermontferrand","draggable":true},{"symbolSize":12,"name":"corte","draggable":true},{"symbolSize":12,"name":"paris","draggable":true},{"symbolSize":12,"name":"dijon","draggable":true},{"symbolSize":12,"name":"limoges","draggable":true},{"symbolSize":12,"name":"nantes","draggable":true},{"symbolSize":12,"name":"grenoble","draggable":true},{"symbolSize":12,"name":"poiters","draggable":true},{"symbolSize":12,"name":"lyon","draggable":true},{"symbolSize":12,"name":"toulouse","draggable":true},{"symbolSize":12,"name":"strasbourg","draggable":true},{"symbolSize":12,"name":"cadarache","draggable":true},{"symbolSize":12,"name":"pau","draggable":true},{"symbolSize":12,"name":"compiegne","draggable":true},{"symbolSize":12,"name":"caen","draggable":true},{"symbolSize":12,"name":"rennes","draggable":true},{"symbolSize":12,"name":"nancy","draggable":true},{"symbolSize":12,"name":"lille","draggable":true},{"symbolSize":12,"name":"peerclermontferrand0","draggable":true},{"symbolSize":12,"name":"nice","draggable":true},{"symbolSize":12,"name":"cern","draggable":true},{"symbolSize":12,"name":"besancon","draggable":true},{"symbolSize":12,"name":"marseille","draggable":true},{"symbolSize":12,"name":"internetttmondial","draggable":true},{"symbolSize":12,"name":"lattreunionttnouvellettcaledoniettmayottetttahiti","draggable":true},{"symbolSize":12,"name":"orleans","draggable":true},{"symbolSize":12,"name":"montpellier","draggable":true},{"symbolSize":12,"name":"rouen","draggable":true}],"layout":"force","links":[{"source":"caen","target":"rouen","symbolSize":10},{"source":"poiters","target":"limoges","symbolSize":10},{"source":"besancon","target":"lyon","symbolSize":10},{"source":"rennes","target":"nantes","symbolSize":10},{"source":"rennes","target":"caen","symbolSize":10},{"source":"martiniquettguadeloupettcayenne","target":"lyon","symbolSize":10},{"source":"besancon","target":"dijon","symbolSize":10},{"source":"nodeid13","target":"paris","symbolSize":10},{"source":"corte","target":"marseille","symbolSize":10},{"source":"limoges","target":"clermontferrand","symbolSize":10},{"source":"paris","target":"lille","symbolSize":10},{"source":"lyon","target":"grenoble","symbolSize":10},{"source":"dijon","target":"lyon","symbolSize":10},{"source":"nantes","target":"rennes","symbolSize":10},{"source":"bordeaux","target":"pau","symbolSize":10},{"source":"lille","target":"paris","symbolSize":10},{"source":"paris","target":"lyon","symbolSize":10},{"source":"montpellier","target":"toulouse","symbolSize":10},{"source":"strasbourg","target":"nancy","symbolSize":10},{"source":"clermontferrand","target":"lyon","symbolSize":10},{"source":"paris","target":"poiters","symbolSize":10},{"source":"nice","target":"grenoble","symbolSize":10},{"source":"marseille","target":"cadarache","symbolSize":10},{"source":"orleans","target":"poiters","symbolSize":10},{"source":"lyon","target":"paris","symbolSize":10},{"source":"lyon","target":"montpellier","symbolSize":10},{"source":"nodeid13","target":"martiniquettguadeloupettcayenne","symbolSize":10},{"source":"paris","target":"internetttmondial","symbolSize":10},{"source":"nice","target":"marseille","symbolSize":10},{"source":"lyon","target":"internetttmondial","symbolSize":10},{"source":"lyon","target":"martiniquettguadeloupettcayenne","symbolSize":10},{"source":"dijon","target":"besancon","symbolSize":10},{"source":"montpellier","target":"lyon","symbolSize":10},{"source":"internetttmondial","target":"lyon","symbolSize":10},{"source":"paris","target":"nodeid13","symbolSize":10},{"source":"reims","target":"paris","symbolSize":10},{"source":"paris","target":"rouen","symbolSize":10},{"source":"martiniquettguadeloupettcayenne","target":"nodeid13","symbolSize":10},{"source":"paris","target":"geant2","symbolSize":10},{"source":"geant2","target":"paris","symbolSize":10},{"source":"lyon","target":"besancon","symbolSize":10},{"source":"paris","target":"compiegne","symbolSize":10},{"source":"paris","target":"orleans","symbolSize":10},{"source":"toulouse","target":"bordeaux","symbolSize":10},{"source":"orleans","target":"paris","symbolSize":10},{"source":"montpellier","target":"marseille","symbolSize":10},{"source":"toulouse","target":"montpellier","symbolSize":10},{"source":"marseille","target":"corte","symbolSize":10},{"source":"lattreunionttnouvellettcaledoniettmayottetttahiti","target":"nodeid13","symbolSize":10},{"source":"internetttmondial","target":"paris","symbolSize":10},{"source":"reims","target":"nancy","symbolSize":10},{"source":"nancy","target":"strasbourg","symbolSize":10},{"source":"lyon","target":"clermontferrand","symbolSize":10},{"source":"poiters","target":"bordeaux","symbolSize":10},{"source":"caen","target":"rennes","symbolSize":10},{"source":"marseille","target":"montpellier","symbolSize":10},{"source":"rouen","target":"paris","symbolSize":10},{"source":"cern","target":"lyon","symbolSize":10},{"source":"grenoble","target":"lyon","symbolSize":10},{"source":"poiters","target":"orleans","symbolSize":10},{"source":"bordeaux","target":"poiters","symbolSize":10},{"source":"clermontferrand","target":"limoges","symbolSize":10},{"source":"lyon","target":"dijon","symbolSize":10},{"source":"toulouse","target":"pau","symbolSize":10},{"source":"peerclermontferrand0","target":"clermontferrand","symbolSize":10},{"source":"besancon","target":"strasbourg","symbolSize":10},{"source":"sfinx","target":"paris","symbolSize":10},{"source":"compiegne","target":"paris","symbolSize":10},{"source":"grenoble","target":"nice","symbolSize":10},{"source":"lyon","target":"cern","symbolSize":10},{"source":"compiegne","target":"lille","symbolSize":10},{"source":"bordeaux","target":"toulouse","symbolSize":10},{"source":"rouen","target":"caen","symbolSize":10},{"source":"nantes","target":"poiters","symbolSize":10},{"source":"pau","target":"bordeaux","symbolSize":10},{"source":"clermontferrand","target":"peerclermontferrand0","symbolSize":10},{"source":"lille","target":"compiegne","symbolSize":10},{"source":"nodeid13","target":"lattreunionttnouvellettcaledoniettmayottetttahiti","symbolSize":10},{"source":"paris","target":"reims","symbolSize":10},{"source":"strasbourg","target":"besancon","symbolSize":10},{"source":"paris","target":"sfinx","symbolSize":10},{"source":"cadarache","target":"marseille","symbolSize":10},{"source":"nancy","target":"reims","symbolSize":10},{"source":"poiters","target":"nantes","symbolSize":10},{"source":"pau","target":"toulouse","symbolSize":10},{"source":"limoges","target":"poiters","symbolSize":10},{"source":"poiters","target":"paris","symbolSize":10},{"source":"marseille","target":"nice","symbolSize":10}],"draggable":true,"label":{"show":true,"position":"top"},"lineStyle":{"width":2},"force":{"repulsion":500,"gravity":0.2}}]}
+        chart.setOption(option);
+    </script>
+</body>
+
+</html>

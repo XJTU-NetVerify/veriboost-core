@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ECharts Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"
+        integrity="sha512-ivdGNkeO+FTZH5ZoVC4gS4ovGSiWc+6v60/hvHkccaMN2BXchfKdvEZtviy5L4xSpF8NPsfS0EVNSGf+EsUdxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #title-container {
+            width: 5000px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #download-btn {
+            border-radius: 6px;
+            background-color: aliceblue;
+            border: 1px solid black;
+        }
+
+        #display-container {
+            width: 5000px;
+            height: 3500px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title-container">
+            <h1 class="display">ECharts Java</h1>
+            <button id="download-btn" onclick="downloadImage()">Download Image</button>
+        </div>
+        <div id="display-container">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function downloadImage() {
+            let canvas = document.querySelector("canvas");
+            let image = canvas.toDataURL("image/png").replace("image/png",
+                "image/octet-stream");
+            let fakeLink = document.createElement("a");
+            if (typeof fakeLink.download === "string") {
+                document.body.appendChild(fakeLink);
+                fakeLink.download = "echart.png";
+                fakeLink.href = image;
+                fakeLink.click();
+                document.body.removeChild(fakeLink);
+            } else {
+                location.replace(image);
+            }
+        }
+        var chart = echarts.init(document.getElementById("display-container")); 
+        var option = {"title":{"text":"topology"},"tooltip":{"trigger":"item"},"legend":{},"series":[{"type":"graph","data":[{"symbolSize":12,"name":"ormoz","draggable":true},{"symbolSize":12,"name":"postojna","draggable":true},{"symbolSize":12,"name":"bled","draggable":true},{"symbolSize":12,"name":"slovenjttgradec","draggable":true},{"symbolSize":12,"name":"krsko","draggable":true},{"symbolSize":12,"name":"peerljutomer0","draggable":true},{"symbolSize":12,"name":"kranj","draggable":true},{"symbolSize":12,"name":"izola","draggable":true},{"symbolSize":12,"name":"ravnettnattkoroskem","draggable":true},{"symbolSize":12,"name":"ajdovscina","draggable":true},{"symbolSize":12,"name":"ljubljana","draggable":true},{"symbolSize":12,"name":"radenci","draggable":true},{"symbolSize":12,"name":"gornjattradgona","draggable":true},{"symbolSize":12,"name":"velenje","draggable":true},{"symbolSize":12,"name":"lasko","draggable":true},{"symbolSize":12,"name":"maribor","draggable":true},{"symbolSize":12,"name":"novattgorica","draggable":true},{"symbolSize":12,"name":"tolmin","draggable":true},{"symbolSize":12,"name":"rogasjattslatina","draggable":true},{"symbolSize":12,"name":"trbovlje","draggable":true},{"symbolSize":12,"name":"novottmesto","draggable":true},{"symbolSize":12,"name":"senozece","draggable":true},{"symbolSize":12,"name":"slovenskattbistrica","draggable":true},{"symbolSize":12,"name":"celje","draggable":true},{"symbolSize":12,"name":"sezana","draggable":true},{"symbolSize":12,"name":"ptuj","draggable":true},{"symbolSize":12,"name":"kovevje","draggable":true},{"symbolSize":12,"name":"divaca","draggable":true},{"symbolSize":12,"name":"koper","draggable":true},{"symbolSize":12,"name":"jesenice","draggable":true},{"symbolSize":12,"name":"ljutomer","draggable":true},{"symbolSize":12,"name":"kamnik","draggable":true},{"symbolSize":12,"name":"murskattsobota","draggable":true},{"symbolSize":12,"name":"portoroz","draggable":true},{"symbolSize":12,"name":"dravograd","draggable":true}],"layout":"force","links":[{"source":"bled","target":"tolmin","symbolSize":10},{"source":"krsko","target":"rogasjattslatina","symbolSize":10},{"source":"slovenskattbistrica","target":"maribor","symbolSize":10},{"source":"sezana","target":"senozece","symbolSize":10},{"source":"kranj","target":"koper","symbolSize":10},{"source":"ajdovscina","target":"novattgorica","symbolSize":10},{"source":"ptuj","target":"maribor","symbolSize":10},{"source":"kranj","target":"jesenice","symbolSize":10},{"source":"ljubljana","target":"kranj","symbolSize":10},{"source":"koper","target":"ljubljana","symbolSize":10},{"source":"ljutomer","target":"ormoz","symbolSize":10},{"source":"ljubljana","target":"kovevje","symbolSize":10},{"source":"postojna","target":"ljubljana","symbolSize":10},{"source":"divaca","target":"koper","symbolSize":10},{"source":"kovevje","target":"novottmesto","symbolSize":10},{"source":"celje","target":"lasko","symbolSize":10},{"source":"maribor","target":"slovenskattbistrica","symbolSize":10},{"source":"maribor","target":"gornjattradgona","symbolSize":10},{"source":"senozece","target":"sezana","symbolSize":10},{"source":"ajdovscina","target":"divaca","symbolSize":10},{"source":"dravograd","target":"velenje","symbolSize":10},{"source":"rogasjattslatina","target":"ptuj","symbolSize":10},{"source":"kamnik","target":"celje","symbolSize":10},{"source":"novottmesto","target":"kovevje","symbolSize":10},{"source":"koper","target":"izola","symbolSize":10},{"source":"dravograd","target":"slovenjttgradec","symbolSize":10},{"source":"maribor","target":"ljubljana","symbolSize":10},{"source":"trbovlje","target":"lasko","symbolSize":10},{"source":"peerljutomer0","target":"ljutomer","symbolSize":10},{"source":"jesenice","target":"kranj","symbolSize":10},{"source":"radenci","target":"murskattsobota","symbolSize":10},{"source":"gornjattradgona","target":"maribor","symbolSize":10},{"source":"ljubljana","target":"koper","symbolSize":10},{"source":"dravograd","target":"maribor","symbolSize":10},{"source":"ptuj","target":"ormoz","symbolSize":10},{"source":"ljutomer","target":"murskattsobota","symbolSize":10},{"source":"novattgorica","target":"ljubljana","symbolSize":10},{"source":"senozece","target":"postojna","symbolSize":10},{"source":"novattgorica","target":"ajdovscina","symbolSize":10},{"source":"postojna","target":"senozece","symbolSize":10},{"source":"izola","target":"koper","symbolSize":10},{"source":"gornjattradgona","target":"radenci","symbolSize":10},{"source":"novattgorica","target":"tolmin","symbolSize":10},{"source":"ljubljana","target":"trbovlje","symbolSize":10},{"source":"portoroz","target":"izola","symbolSize":10},{"source":"ormoz","target":"ptuj","symbolSize":10},{"source":"bled","target":"kranj","symbolSize":10},{"source":"koper","target":"kranj","symbolSize":10},{"source":"ormoz","target":"ljutomer","symbolSize":10},{"source":"maribor","target":"dravograd","symbolSize":10},{"source":"ljubljana","target":"kamnik","symbolSize":10},{"source":"lasko","target":"maribor","symbolSize":10},{"source":"trbovlje","target":"ljubljana","symbolSize":10},{"source":"radenci","target":"gornjattradgona","symbolSize":10},{"source":"novottmesto","target":"krsko","symbolSize":10},{"source":"lasko","target":"trbovlje","symbolSize":10},{"source":"maribor","target":"ptuj","symbolSize":10},{"source":"celje","target":"velenje","symbolSize":10},{"source":"murskattsobota","target":"ljutomer","symbolSize":10},{"source":"izola","target":"portoroz","symbolSize":10},{"source":"maribor","target":"lasko","symbolSize":10},{"source":"kamnik","target":"ljubljana","symbolSize":10},{"source":"celje","target":"slovenskattbistrica","symbolSize":10},{"source":"ravnettnattkoroskem","target":"dravograd","symbolSize":10},{"source":"senozece","target":"divaca","symbolSize":10},{"source":"divaca","target":"senozece","symbolSize":10},{"source":"velenje","target":"slovenjttgradec","symbolSize":10},{"source":"dravograd","target":"ravnettnattkoroskem","symbolSize":10},{"source":"krsko","target":"novottmesto","symbolSize":10},{"source":"portoroz","target":"divaca","symbolSize":10},{"source":"ljubljana","target":"maribor","symbolSize":10},{"source":"lasko","target":"ljubljana","symbolSize":10},{"source":"murskattsobota","target":"radenci","symbolSize":10},{"source":"slovenjttgradec","target":"dravograd","symbolSize":10},{"source":"celje","target":"kamnik","symbolSize":10},{"source":"divaca","target":"ajdovscina","symbolSize":10},{"source":"kovevje","target":"ljubljana","symbolSize":10},{"source":"slovenjttgradec","target":"velenje","symbolSize":10},{"source":"kranj","target":"ljubljana","symbolSize":10},{"source":"kranj","target":"bled","symbolSize":10},{"source":"velenje","target":"dravograd","symbolSize":10},{"source":"tolmin","target":"novattgorica","symbolSize":10},{"source":"slovenskattbistrica","target":"celje","symbolSize":10},{"source":"ljubljana","target":"lasko","symbolSize":10},{"source":"velenje","target":"celje","symbolSize":10},{"source":"rogasjattslatina","target":"krsko","symbolSize":10},{"source":"ptuj","target":"rogasjattslatina","symbolSize":10},{"source":"tolmin","target":"bled","symbolSize":10},{"source":"ljubljana","target":"novattgorica","symbolSize":10},{"source":"ljubljana","target":"postojna","symbolSize":10},{"source":"koper","target":"divaca","symbolSize":10},{"source":"ljutomer","target":"peerljutomer0","symbolSize":10},{"source":"divaca","target":"portoroz","symbolSize":10},{"source":"lasko","target":"celje","symbolSize":10}],"draggable":true,"label":{"show":true,"position":"top"},"lineStyle":{"width":2},"force":{"repulsion":500,"gravity":0.2}}]}
+        chart.setOption(option);
+    </script>
+</body>
+
+</html>

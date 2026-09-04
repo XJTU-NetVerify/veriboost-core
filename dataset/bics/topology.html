@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ECharts Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"
+        integrity="sha512-ivdGNkeO+FTZH5ZoVC4gS4ovGSiWc+6v60/hvHkccaMN2BXchfKdvEZtviy5L4xSpF8NPsfS0EVNSGf+EsUdxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #title-container {
+            width: 5000px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #download-btn {
+            border-radius: 6px;
+            background-color: aliceblue;
+            border: 1px solid black;
+        }
+
+        #display-container {
+            width: 5000px;
+            height: 3500px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title-container">
+            <h1 class="display">ECharts Java</h1>
+            <button id="download-btn" onclick="downloadImage()">Download Image</button>
+        </div>
+        <div id="display-container">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function downloadImage() {
+            let canvas = document.querySelector("canvas");
+            let image = canvas.toDataURL("image/png").replace("image/png",
+                "image/octet-stream");
+            let fakeLink = document.createElement("a");
+            if (typeof fakeLink.download === "string") {
+                document.body.appendChild(fakeLink);
+                fakeLink.download = "echart.png";
+                fakeLink.href = image;
+                fakeLink.click();
+                document.body.removeChild(fakeLink);
+            } else {
+                location.replace(image);
+            }
+        }
+        var chart = echarts.init(document.getElementById("display-container")); 
+        var option = {"title":{"text":"topology"},"tooltip":{"trigger":"item"},"legend":{},"series":[{"type":"graph","data":[{"symbolSize":12,"name":"london","draggable":true},{"symbolSize":12,"name":"geneva","draggable":true},{"symbolSize":12,"name":"praha","draggable":true},{"symbolSize":12,"name":"peergeneva8","draggable":true},{"symbolSize":12,"name":"peergeneva9","draggable":true},{"symbolSize":12,"name":"bucharest","draggable":true},{"symbolSize":12,"name":"barcelona","draggable":true},{"symbolSize":12,"name":"peerfrankfurt7","draggable":true},{"symbolSize":12,"name":"peeramsterdam0","draggable":true},{"symbolSize":12,"name":"vienna","draggable":true},{"symbolSize":12,"name":"warsaw","draggable":true},{"symbolSize":12,"name":"lyon","draggable":true},{"symbolSize":12,"name":"peermilan14","draggable":true},{"symbolSize":12,"name":"bratislava","draggable":true},{"symbolSize":12,"name":"lisbon","draggable":true},{"symbolSize":12,"name":"roma","draggable":true},{"symbolSize":12,"name":"ljubjana","draggable":true},{"symbolSize":12,"name":"istanbul","draggable":true},{"symbolSize":12,"name":"amsterdam","draggable":true},{"symbolSize":12,"name":"basel","draggable":true},{"symbolSize":12,"name":"sofia","draggable":true},{"symbolSize":12,"name":"athens","draggable":true},{"symbolSize":12,"name":"brussels","draggable":true},{"symbolSize":12,"name":"budapest","draggable":true},{"symbolSize":12,"name":"madrid","draggable":true},{"symbolSize":12,"name":"kiev","draggable":true},{"symbolSize":12,"name":"stockholm","draggable":true},{"symbolSize":12,"name":"zurich","draggable":true},{"symbolSize":12,"name":"rotterdam","draggable":true},{"symbolSize":12,"name":"dublin","draggable":true},{"symbolSize":12,"name":"peerbarcelona1","draggable":true},{"symbolSize":12,"name":"peermarseille13","draggable":true},{"symbolSize":12,"name":"peermarseille12","draggable":true},{"symbolSize":12,"name":"milan","draggable":true},{"symbolSize":12,"name":"vaduz","draggable":true},{"symbolSize":12,"name":"paris","draggable":true},{"symbolSize":12,"name":"luxembourg","draggable":true},{"symbolSize":12,"name":"zagreb","draggable":true},{"symbolSize":12,"name":"peerkiev11","draggable":true},{"symbolSize":12,"name":"peerbrussels4","draggable":true},{"symbolSize":12,"name":"strasbourg","draggable":true},{"symbolSize":12,"name":"peerbrussels5","draggable":true},{"symbolSize":12,"name":"peerstrasbourg15","draggable":true},{"symbolSize":12,"name":"peerbrussels6","draggable":true},{"symbolSize":12,"name":"frankfurt","draggable":true},{"symbolSize":12,"name":"marseille","draggable":true},{"symbolSize":12,"name":"peeristanbul10","draggable":true},{"symbolSize":12,"name":"peerbasel3","draggable":true},{"symbolSize":12,"name":"peerbasel2","draggable":true}],"layout":"force","links":[{"source":"basel","target":"strasbourg","symbolSize":10},{"source":"geneva","target":"lyon","symbolSize":10},{"source":"peermarseille12","target":"marseille","symbolSize":10},{"source":"london","target":"lisbon","symbolSize":10},{"source":"milan","target":"marseille","symbolSize":10},{"source":"lyon","target":"marseille","symbolSize":10},{"source":"zurich","target":"vaduz","symbolSize":10},{"source":"budapest","target":"bucharest","symbolSize":10},{"source":"rotterdam","target":"amsterdam","symbolSize":10},{"source":"marseille","target":"lyon","symbolSize":10},{"source":"budapest","target":"sofia","symbolSize":10},{"source":"peerbasel3","target":"basel","symbolSize":10},{"source":"dublin","target":"london","symbolSize":10},{"source":"basel","target":"peerbasel2","symbolSize":10},{"source":"london","target":"paris","symbolSize":10},{"source":"luxembourg","target":"brussels","symbolSize":10},{"source":"marseille","target":"barcelona","symbolSize":10},{"source":"rotterdam","target":"brussels","symbolSize":10},{"source":"frankfurt","target":"stockholm","symbolSize":10},{"source":"paris","target":"lyon","symbolSize":10},{"source":"bucharest","target":"kiev","symbolSize":10},{"source":"sofia","target":"budapest","symbolSize":10},{"source":"lyon","target":"paris","symbolSize":10},{"source":"lyon","target":"geneva","symbolSize":10},{"source":"paris","target":"geneva","symbolSize":10},{"source":"basel","target":"peerbasel3","symbolSize":10},{"source":"vaduz","target":"zurich","symbolSize":10},{"source":"brussels","target":"paris","symbolSize":10},{"source":"luxembourg","target":"strasbourg","symbolSize":10},{"source":"peerkiev11","target":"kiev","symbolSize":10},{"source":"istanbul","target":"athens","symbolSize":10},{"source":"frankfurt","target":"vienna","symbolSize":10},{"source":"bratislava","target":"vienna","symbolSize":10},{"source":"geneva","target":"basel","symbolSize":10},{"source":"brussels","target":"peerbrussels4","symbolSize":10},{"source":"stockholm","target":"frankfurt","symbolSize":10},{"source":"milan","target":"peermilan14","symbolSize":10},{"source":"brussels","target":"peerbrussels6","symbolSize":10},{"source":"brussels","target":"peerbrussels5","symbolSize":10},{"source":"frankfurt","target":"warsaw","symbolSize":10},{"source":"peergeneva8","target":"geneva","symbolSize":10},{"source":"brussels","target":"frankfurt","symbolSize":10},{"source":"marseille","target":"peermarseille13","symbolSize":10},{"source":"marseille","target":"peermarseille12","symbolSize":10},{"source":"london","target":"brussels","symbolSize":10},{"source":"london","target":"amsterdam","symbolSize":10},{"source":"frankfurt","target":"strasbourg","symbolSize":10},{"source":"paris","target":"brussels","symbolSize":10},{"source":"madrid","target":"barcelona","symbolSize":10},{"source":"barcelona","target":"marseille","symbolSize":10},{"source":"bucharest","target":"budapest","symbolSize":10},{"source":"athens","target":"istanbul","symbolSize":10},{"source":"barcelona","target":"madrid","symbolSize":10},{"source":"warsaw","target":"frankfurt","symbolSize":10},{"source":"warsaw","target":"kiev","symbolSize":10},{"source":"amsterdam","target":"brussels","symbolSize":10},{"source":"brussels","target":"rotterdam","symbolSize":10},{"source":"milan","target":"roma","symbolSize":10},{"source":"geneva","target":"paris","symbolSize":10},{"source":"strasbourg","target":"basel","symbolSize":10},{"source":"vienna","target":"bratislava","symbolSize":10},{"source":"peermarseille13","target":"marseille","symbolSize":10},{"source":"paris","target":"madrid","symbolSize":10},{"source":"barcelona","target":"peerbarcelona1","symbolSize":10},{"source":"roma","target":"milan","symbolSize":10},{"source":"strasbourg","target":"peerstrasbourg15","symbolSize":10},{"source":"budapest","target":"zagreb","symbolSize":10},{"source":"brussels","target":"luxembourg","symbolSize":10},{"source":"budapest","target":"bratislava","symbolSize":10},{"source":"strasbourg","target":"frankfurt","symbolSize":10},{"source":"brussels","target":"london","symbolSize":10},{"source":"milan","target":"vienna","symbolSize":10},{"source":"peerfrankfurt7","target":"frankfurt","symbolSize":10},{"source":"amsterdam","target":"peeramsterdam0","symbolSize":10},{"source":"peerbrussels6","target":"brussels","symbolSize":10},{"source":"zurich","target":"frankfurt","symbolSize":10},{"source":"bratislava","target":"praha","symbolSize":10},{"source":"vienna","target":"milan","symbolSize":10},{"source":"zurich","target":"milan","symbolSize":10},{"source":"zurich","target":"roma","symbolSize":10},{"source":"amsterdam","target":"london","symbolSize":10},{"source":"kiev","target":"warsaw","symbolSize":10},{"source":"frankfurt","target":"peerfrankfurt7","symbolSize":10},{"source":"london","target":"dublin","symbolSize":10},{"source":"peerbrussels5","target":"brussels","symbolSize":10},{"source":"bratislava","target":"budapest","symbolSize":10},{"source":"lisbon","target":"london","symbolSize":10},{"source":"roma","target":"zurich","symbolSize":10},{"source":"strasbourg","target":"luxembourg","symbolSize":10},{"source":"vienna","target":"frankfurt","symbolSize":10},{"source":"istanbul","target":"bucharest","symbolSize":10},{"source":"basel","target":"geneva","symbolSize":10},{"source":"madrid","target":"paris","symbolSize":10},{"source":"praha","target":"bratislava","symbolSize":10},{"source":"milan","target":"zurich","symbolSize":10},{"source":"sofia","target":"athens","symbolSize":10},{"source":"amsterdam","target":"frankfurt","symbolSize":10},{"source":"kiev","target":"peerkiev11","symbolSize":10},{"source":"peerbarcelona1","target":"barcelona","symbolSize":10},{"source":"peerbrussels4","target":"brussels","symbolSize":10},{"source":"bucharest","target":"istanbul","symbolSize":10},{"source":"peerstrasbourg15","target":"strasbourg","symbolSize":10},{"source":"frankfurt","target":"amsterdam","symbolSize":10},{"source":"frankfurt","target":"praha","symbolSize":10},{"source":"ljubjana","target":"zagreb","symbolSize":10},{"source":"brussels","target":"amsterdam","symbolSize":10},{"source":"frankfurt","target":"brussels","symbolSize":10},{"source":"geneva","target":"zurich","symbolSize":10},{"source":"zurich","target":"geneva","symbolSize":10},{"source":"zagreb","target":"ljubjana","symbolSize":10},{"source":"marseille","target":"milan","symbolSize":10},{"source":"praha","target":"warsaw","symbolSize":10},{"source":"peeristanbul10","target":"istanbul","symbolSize":10},{"source":"peergeneva9","target":"geneva","symbolSize":10},{"source":"warsaw","target":"praha","symbolSize":10},{"source":"zagreb","target":"budapest","symbolSize":10},{"source":"peeramsterdam0","target":"amsterdam","symbolSize":10},{"source":"geneva","target":"peergeneva9","symbolSize":10},{"source":"geneva","target":"peergeneva8","symbolSize":10},{"source":"paris","target":"london","symbolSize":10},{"source":"frankfurt","target":"zurich","symbolSize":10},{"source":"istanbul","target":"peeristanbul10","symbolSize":10},{"source":"praha","target":"frankfurt","symbolSize":10},{"source":"athens","target":"sofia","symbolSize":10},{"source":"peerbasel2","target":"basel","symbolSize":10},{"source":"kiev","target":"bucharest","symbolSize":10},{"source":"amsterdam","target":"rotterdam","symbolSize":10},{"source":"peermilan14","target":"milan","symbolSize":10}],"draggable":true,"label":{"show":true,"position":"top"},"lineStyle":{"width":2},"force":{"repulsion":500,"gravity":0.2}}]}
+        chart.setOption(option);
+    </script>
+</body>
+
+</html>
