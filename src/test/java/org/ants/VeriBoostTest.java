@@ -17,7 +17,7 @@ public class VeriBoostTest {
         // Step1. read topology and build
 
         veriBoost = new VeriBoost();
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("uscarrier.txt");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("topology.txt");
         if (inputStream == null) {
             throw new RuntimeException("topology.txt not found in resources");
         }
